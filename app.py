@@ -28,13 +28,11 @@ Session(app)
 
 @app.context_processor
 def inject_best_score():
-    best_score = 0
-    username = session.get("username")
-    if username:
-        user = User.query.filter_by(username=username).first()
-        if user:
-            best_score = user.high_score
-    return dict(best_score=best_score)
+    """
+    Inject the best score into the context of all templates.
+    """
+
+    return dict(best_score=session.get("best_score", 0))
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -72,13 +70,16 @@ def index():
         user = User.query.filter_by(username=username).first()  # Get the user from the database
         # If the user does not exist, create a new user
         if not user:
-            user = User(username=username)
+            user = User(username=username, high_score=final_score)
             db.session.add(user)
         # If the user exists, update the their high score (if it's higher)
         elif final_score > user.high_score:
                 user.high_score = final_score
         # Commit the changes to the database
         db.session.commit()
+
+        # Save the best score in session
+        session["best_score"] = user.high_score
 
         # Return the results
         return render_template("results.html", username=username, score=final_score, high_score=user.high_score)
