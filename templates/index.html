@@ -1,48 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Quiz</title>
-    <style>
-        body {
-            position: relative;
-            min-height: 100vh;
-        }
+{% extends "layout.html" %}
 
-        footer {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <h1>Quiz</h1>
-    <form action="/" method="post">
-        <!-- Question about the user's name -->
-        <h2>What is your name?</h2>
-        <input type="text" name="username" required>
+{% block title %}Form{% endblock %}
 
-        {% for question in questions %}
-            <h2>{{ question.question_text }}</h2>
-            <input type="radio" name="question_{{ question.id }}" value="A"> {{ question.answer_a }}<br>
-            <input type="radio" name="question_{{ question.id }}" value="B"> {{ question.answer_b }}<br>
-            <input type="radio" name="question_{{ question.id }}" value="C"> {{ question.answer_c }}<br>
-        {% endfor %}
+{% block main %}
+<form action="/" method="post">
+    <!-- Question about the user's name -->
+    <h2>What is your name?</h2>
+    <input type="text" name="username" required>
 
-        <br>
-        <input type="submit" value="Submit Answers">
+    {% for question in questions %}
+        <h2>{{ question.question_text }}</h2>
+        <input type="radio" name="question_{{ question.id }}" value="A"> {{ question.answer_a }}<br>
+        <input type="radio" name="question_{{ question.id }}" value="B"> {{ question.answer_b }}<br>
+        <input type="radio" name="question_{{ question.id }}" value="C"> {{ question.answer_c }}<br>
+    {% endfor %}
 
-        <!-- User's best score in the top right corner -->
-        <div style="position: absolute; top: 10px; right: 10px;">
-            <p>Best Score: {{ best_score }}%</p>
-        </div>
-    </form>
+    <br>
+    <input type="submit" value="Submit Answers">
 
-    <!-- Footer with information about the author -->
-    <footer>
-        Filip Rokita {{ year }}
-    </footer>
-</body>
-</html>
+    <!-- User's best score in the top right corner -->
+    <div style="position: absolute; top: 10px; right: 10px;">
+        <p>Best Score: {{ best_score }}%</p>
+    </div>
+</form>
+{% endblock %}

@@ -1,28 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Results</title>
-    <style>
-        body {
-            text-align: center;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            margin-top: 50px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Quiz Results</h1>
-        <p>Thank you, <strong>{{ username }}</strong>!</p>
-        <p>Your Score: <strong>{{ score }}%</strong></p>
-        <p>Your Best Score: <strong>{{ high_score }}%</strong></p>
+{% extends "layout.html" %}
 
-        <br>
-        <a href="/">Try Again</a>
-    </div>
-</body>
-</html>
+{% block title %}Results{% endblock %}
+
+{% block main %}
+<div class="container">
+    <h1>Quiz Results</h1>
+    <p>Thank you, <strong>{{ username }}</strong>!</p>
+    <p>Your Score: <strong>{{ score }}%</strong></p>
+    <p>Your Best Score: <strong>{{ high_score }}%</strong></p>
+
+    <br>
+    <a href="/">Try Again</a>
+</div>
+{% endblock %}
