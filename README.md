@@ -22,7 +22,22 @@ This is a web-based **Python AI Quiz Application** built using **Flask, SQLAlche
 - **SQLite** (Database)
 - **Docker** (Environment)
 
-## 📜 Installation Guide
+## 📜 Installation Guide (with Docker)
+
+### **1️⃣ Clone the Repository**
+```sh
+git clone https://github.com/FilipRokita/python-ai-quiz
+cd python-ai-quiz
+```
+
+### **2️⃣ Run Docker Compose**
+```sh
+docker compose up -d
+```
+
+✅ **Visit:** `http://0.0.0.0:8082/`
+
+## 📜 Installation Guide (without Docker)
 
 ### **1️⃣ Clone the Repository**
 ```sh
