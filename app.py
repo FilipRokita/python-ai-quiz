@@ -6,6 +6,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from flask_session import Session
 from models import db, User, Question
 import os
+from datetime import datetime
 
 
 # Creating the Flask application
@@ -72,6 +73,12 @@ def index():
         return render_template("results.html", username=username, score=final_score, high_score=user.high_score)
 
     # WHEN METHOD = GET
+    # Get questions from the database
+    questions = Question.query.all()
+
+    # Get current year
+    year = datetime.now().year
+
     # Get the user's high score from the database
     username = session.get("username")
     best_score = 0
@@ -79,10 +86,7 @@ def index():
          user = User.query.filter_by(username=username).first()
          best_score = user.high_score if user else 0
 
-    # Get questions from the database
-    questions = Question.query.all()
-
-    return render_template("index.html", best_score=best_score, questions=questions)
+    return render_template("index.html", best_score=best_score, questions=questions, year = year)
 
 
 # Run the application
