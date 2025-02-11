@@ -1,5 +1,9 @@
 # 🧠 Python AI Quiz
 
+<div align="center">
+    <img src="misc/mockup.png">
+</div>
+
 This is a web-based **Python AI Quiz Application** built using **Flask, SQLAlchemy, and Bootstrap**. The quiz focuses on **Artificial Intelligence (AI) topics** such as **deep learning, computer vision, and natural language processing (NLP)**.
 
 ## 🚀 Features
