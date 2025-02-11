@@ -9,7 +9,7 @@
 This is a web-based **Python AI Quiz Application** built using **Flask, SQLAlchemy, and Bootstrap**. The quiz focuses on **Artificial Intelligence (AI) topics** such as **deep learning, computer vision, and natural language processing (NLP)**.
 
 ## 🎯 Main Advantage
-The quiz questions are stored in a **database (SQLite)** instead of being hardcoded, making it **effortlessly customizable**. This allows users to **easily modify, expand, or update the quiz content** without changing the application’s code, ensuring **scalability and flexibility**.
+The quiz questions are stored in a **database (SQLite)** instead of being hardcoded, making it **effortlessly customizable**. This allows users to **easily modify, expand, or update the quiz content** without changing the application’s code, ensuring **scalability and flexibility**. The included AI-related questions may serve as **placeholders**, meaning the quiz can be quickly adapted to any topic by simply updating the database.
 
 ## 🚀 Features
 ✅ AI-related quiz with multiple-choice questions  
