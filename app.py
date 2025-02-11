@@ -23,11 +23,53 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index():
     """
-    Index route
+    Index route, main route of the application.
     """
+
+    # (WHEN METHOD = POST) Check if the form was submitted
+    if request.method == "POST":
+        # Get the username from the form (if it exists)
+        username = request.form.get("username")
+        if not username:
+            return "Error: Please enter your name!", 400
+        
+        # Get questions from the database
+        questions = Question.query.all()  # Get all the questions
+        score = 0
+        total_questions = len(questions)
+
+        # Loop through the questions
+        for question in questions:
+            user_answer = request.form.get(f"question_{question.id}")  # Get the user's answer
+            # Check if the user's answer is correct
+            if user_answer and user_answer == question.correct_answer:
+                score += 1
+
+        # Compute the percentage score
+        final_score = int((score / total_questions) * 100)
+
+        # Get/add the user from/to the database
+        user = User.query.filter_by(username=username).first()  # Get the user from the database
+        # If the user does not exist, create a new user
+        if not user:
+            user = User(username=username)
+            db.session.add(user)
+        # If the user exists, update the their high score (if it's higher)
+        elif final_score > user.high_score:
+                user.high_score = final_score
+        # Commit the changes to the database
+        db.session.commit()
+
+        # Return the results
+        return render_template("results.html", username=username, score=final_score, high_score=user.high_score)
+
+    # WHEN METHOD = GET
+    # Get the high scores from the database
+    users = User.query
+
     return render_template("index.html")
 
 
