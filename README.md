@@ -24,22 +24,22 @@ git clone https://github.com/FilipRokita/python-quiz
 cd python-quiz
 ```
 
-### **3️⃣ Install Dependencies**
+### **2️⃣ Install Dependencies**
 ```sh
 pip install -r requirements.txt
 ```
 
-### **4️⃣ Initialize the Database**
+### **3️⃣ Initialize the Database**
 ```sh
 python init_db.py
 ```
 
-### **5️⃣ Add Python AI Quiz Questions**
+### **4️⃣ Add Python AI Quiz Questions**
 ```sh
 python add_questions.py
 ```
 
-### **6️⃣ Run the Flask App**
+### **5️⃣ Run the Flask App**
 ```sh
 python app.py
 ```
