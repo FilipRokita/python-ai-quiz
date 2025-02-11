@@ -21,8 +21,8 @@ This is a web-based **Python AI Quiz Application** built using **Flask, SQLAlche
 
 ### **1️⃣ Clone the Repository**
 ```sh
-git clone https://github.com/FilipRokita/python-quiz
-cd python-quiz
+git clone https://github.com/FilipRokita/python-ai-quiz
+cd python-ai-quiz
 ```
 
 ### **2️⃣ Install Dependencies**
