@@ -15,7 +15,6 @@ This is a web-based **Python AI Quiz Application** built using **Flask, SQLAlche
 ✅ Responsive design using Bootstrap  
 ✅ Modular and structured Flask application  
 ✅ SQLite database integration  
-✅ Ready for deployment on PythonAnywhere  
 
 ## 💻 Technologies Used
 - **Python** (Flask, SQLAlchemy, Flask-Session)
