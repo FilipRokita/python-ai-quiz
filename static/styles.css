@@ -1,18 +1,4 @@
-body {
-    position: relative;
-    min-height: 100vh;
-}
-
-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-}
-
-.container {
-    text-align: center;
-    font-family: Arial, sans-serif;
-    margin-top: 50px;
+.card {
+    max-width: 800px;
+    margin: 0 auto;  /* Center */
 }

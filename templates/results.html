@@ -3,13 +3,12 @@
 {% block title %}Results{% endblock %}
 
 {% block main %}
-<div class="container">
-    <h1>Quiz Results</h1>
+<div class="card p-4 shadow">
+    <h1 class="text-center">Quiz Results</h1>
     <p>Thank you, <strong>{{ username }}</strong>!</p>
     <p>Your Score: <strong>{{ score }}%</strong></p>
     <p>Your Best Score: <strong>{{ high_score }}%</strong></p>
 
-    <br>
-    <a href="/">Try Again</a>
+    <a href="/" class="btn btn-primary w-100 mt-3">Try Again</a>
 </div>
 {% endblock %}
