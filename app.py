@@ -26,6 +26,17 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 
+@app.context_processor
+def inject_best_score():
+    best_score = 0
+    username = session.get("username")
+    if username:
+        user = User.query.filter_by(username=username).first()
+        if user:
+            best_score = user.high_score
+    return dict(best_score=best_score)
+
+
 @app.route("/", methods=["GET", "POST"])
 def index():
     """
@@ -76,14 +87,8 @@ def index():
     # Get questions from the database
     questions = Question.query.all()
 
-    # Get the user's high score from the database
-    username = session.get("username")
-    best_score = 0
-    if username:
-         user = User.query.filter_by(username=username).first()
-         best_score = user.high_score if user else 0
-
-    return render_template("index.html", best_score=best_score, questions=questions)
+    # Render the index page
+    return render_template("index.html", questions=questions)
 
 
 # Run the application
