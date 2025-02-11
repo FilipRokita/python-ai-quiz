@@ -79,7 +79,10 @@ def index():
          user = User.query.filter_by(username=username).first()
          best_score = user.high_score if user else 0
 
-    return render_template("index.html", best_score=best_score)
+    # Get questions from the database
+    questions = Question.query.all()
+
+    return render_template("index.html", best_score=best_score, questions=questions)
 
 
 # Run the application
