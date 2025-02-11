@@ -38,6 +38,9 @@ def index():
         if not username:
             return "Error: Please enter your name!", 400
         
+        # Save the username in the session
+        session["username"] = username
+        
         # Get questions from the database
         questions = Question.query.all()  # Get all the questions
         score = 0
@@ -74,7 +77,7 @@ def index():
     best_score = 0
     if username:
          user = User.query.filter_by(username=username).first()
-         best_score = user.high_score
+         best_score = user.high_score if user else 0
 
     return render_template("index.html", best_score=best_score)
 

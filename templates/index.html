@@ -22,23 +22,14 @@
     <form action="/" method="post">
         <!-- Question about the user's name -->
         <h2>Question 1: What is your name?</h2>
-        <input type="text" name="username">
+        <input type="text" name="username" required>
 
-        <!-- First question with multiple choice -->
-        <h2>Question 2: What is your favorite color?</h2>
-        <input type="radio" name="question1" value="red"> Red<br>
-        <input type="radio" name="question1" value="blue"> Blue<br>
-        <input type="radio" name="question1" value="green"> Green<br>
-
-        <!-- Second question with multiple choice -->
-        <h2>Question 3: What is your favorite animal?</h2>
-        <input type="radio" name="question2" value="dog"> Dog<br>
-        <input type="radio" name="question2" value="cat"> Cat<br>
-        <input type="radio" name="question2" value="parrot"> Parrot<br>
-
-        <!-- Third question with a text input -->
-        <h2>Question 4: Describe your hobbies or interests:</h2>
-        <textarea name="question3" rows="4" cols="50"></textarea>
+        {% for question in questions %}
+            <h2>{{ question.question_text }}</h2>
+            <input type="radio" name="question_{{ question.id }}" value="A"> {{ question.answer_a }}<br>
+            <input type="radio" name="question_{{ question.id }}" value="B"> {{ question.answer_b }}<br>
+            <input type="radio" name="question_{{ question.id }}" value="C"> {{ question.answer_c }}<br>
+        {% endfor %}
 
         <br>
         <input type="submit" value="Submit Answers">
