@@ -1,4 +1,4 @@
-# 🧠 Python Quiz
+# 🧠 Python AI Quiz
 
 This is a web-based **Python AI Quiz Application** built using **Flask, SQLAlchemy, and Bootstrap**. The quiz focuses on **Artificial Intelligence (AI) topics** such as **deep learning, computer vision, and natural language processing (NLP)**.
 
@@ -22,11 +22,6 @@ This is a web-based **Python AI Quiz Application** built using **Flask, SQLAlche
 ```sh
 git clone https://github.com/FilipRokita/python-quiz
 cd python-quiz
-```
-### **2️⃣ Create and Activate Virtual Environment**
-```sh
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
 ### **3️⃣ Install Dependencies**
