@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+    <style>
+        body {
+            position: relative;
+            min-height: 100vh;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz</h1>
+    <form>
+        <!-- Question about the user's name -->
+        <h2>Question 1: What is your name?</h2>
+        <input type="text" name="username">
+
+        <!-- First question with multiple choice -->
+        <h2>Question 2: What is your favorite color?</h2>
+        <input type="radio" name="question1" value="red"> Red<br>
+        <input type="radio" name="question1" value="blue"> Blue<br>
+        <input type="radio" name="question1" value="green"> Green<br>
+
+        <!-- Second question with multiple choice -->
+        <h2>Question 3: What is your favorite animal?</h2>
+        <input type="radio" name="question2" value="dog"> Dog<br>
+        <input type="radio" name="question2" value="cat"> Cat<br>
+        <input type="radio" name="question2" value="parrot"> Parrot<br>
+
+        <!-- Third question with a text input -->
+        <h2>Question 4: Describe your hobbies or interests:</h2>
+        <textarea name="question3" rows="4" cols="50"></textarea>
+
+        <br>
+        <input type="submit" value="Submit Answers">
+
+        <!-- User's best score in the top right corner -->
+        <div style="position: absolute; top: 10px; right: 10px;">
+            <p>Best Score: 100%</p>
+        </div>
+    </form>
+
+    <!-- Footer with information about the author -->
+    <footer>
+        Here information about author
+    </footer>
+</body>
+</html>

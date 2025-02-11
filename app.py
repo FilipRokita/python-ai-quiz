@@ -14,6 +14,8 @@ app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 # Configure the database
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///quiz.db"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db.init_app(app)
 
 # Configure session to use filesystem
@@ -21,3 +23,14 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 
 
+@app.route("/")
+def index():
+    """
+    Index route
+    """
+    return render_template("index.html")
+
+
+# Run the application
+if __name__ == "__main__":
+    app.run(debug=True)
