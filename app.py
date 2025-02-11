@@ -3,6 +3,7 @@
 
 # Importing the necessary libraries
 from flask import Flask, render_template, request, redirect, url_for, session
+from flask_session import Session
 from models import db, User, Question
 import os
 
@@ -21,6 +22,7 @@ db.init_app(app)
 # Configure session to use filesystem
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -67,10 +69,14 @@ def index():
         return render_template("results.html", username=username, score=final_score, high_score=user.high_score)
 
     # WHEN METHOD = GET
-    # Get the high scores from the database
-    users = User.query
+    # Get the user's high score from the database
+    username = session.get("username")
+    best_score = 0
+    if username:
+         user = User.query.filter_by(username=username).first()
+         best_score = user.high_score
 
-    return render_template("index.html")
+    return render_template("index.html", best_score=best_score)
 
 
 # Run the application
